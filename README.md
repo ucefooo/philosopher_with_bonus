@@ -15,4 +15,4 @@ run the code like that :  `./philosopher num_of_philo time_die time_eat time_sle
 
 <img width="475" alt="Screen Shot 2022-05-27 at 1 31 19 AM" src="https://user-images.githubusercontent.com/93848441/170605254-7c108dfe-07bd-4bb1-98f6-769210d91bb5.png">
 
-for more details please visit my youtube video : from [youtube video](https://www.linkedin.com/in/youssef-oussama-907637176/).
+for more details please visit my youtube video : from [youtube video](https://www.youtube.com/watch?v=PCS55Uk1ooc).
