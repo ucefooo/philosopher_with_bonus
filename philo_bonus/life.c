@@ -6,7 +6,7 @@
 /*   By: youssama <youssama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:52:27 by youssama          #+#    #+#             */
-/*   Updated: 2022/06/17 11:41:25 by youssama         ###   ########.fr       */
+/*   Updated: 2022/06/18 22:33:41 by youssama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	philo_eat(t_const_philo *philo)
 	philo_do(philo, philo->id, "has taken a fork");
 	sem_wait(philo->var->fork);
 	philo_do(philo, philo->id, "has taken a fork");
-	philo->time_last_eat = timestamp();
 	philo_do(philo, philo->id, "is eating");
 	my_sleep(philo->var->time_to_eat, philo->var);
+	philo->time_last_eat = timestamp();
 	sem_post(philo->var->fork);
 	sem_post(philo->var->fork);
 	philo->ate++;
@@ -56,16 +56,13 @@ int	init_sema(t_philo *philo)
 {
 	sem_unlink("philo_forks");
 	sem_unlink("philo_action");
-	sem_unlink("philo_eat");
 	philo->fork = sem_open("philo_forks", O_CREAT, 0700, philo->nb_philos);
 	philo->act = sem_open("philo_action", O_CREAT, 0700, 1);
-	philo->eat = sem_open("philo_eat", O_CREAT, 0700, 1);
 	if (philo->fork == SEM_FAILED
-		|| philo->act == SEM_FAILED
-		|| philo->eat == SEM_FAILED)
+		|| philo->act == SEM_FAILED)
 	{
 		destroy_sem(philo);
-		exit(1);
+		return (0);
 	}
 	return (1);
 }

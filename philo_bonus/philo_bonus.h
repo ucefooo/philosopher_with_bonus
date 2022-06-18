@@ -6,7 +6,7 @@
 /*   By: youssama <youssama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 11:09:20 by youssama          #+#    #+#             */
-/*   Updated: 2022/06/17 11:39:21 by youssama         ###   ########.fr       */
+/*   Updated: 2022/06/18 22:34:58 by youssama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ typedef struct s_philo
 	unsigned long		time_birth;
 	sem_t				*fork;
 	sem_t				*act;
-	sem_t				*eat;
 	t_const_philo		*var;
 }	t_philo;
 

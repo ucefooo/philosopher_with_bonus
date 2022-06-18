@@ -6,7 +6,7 @@
 /*   By: youssama <youssama@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/17 10:43:32 by youssama          #+#    #+#             */
-/*   Updated: 2022/06/17 11:51:53 by youssama         ###   ########.fr       */
+/*   Updated: 2022/06/18 22:34:28 by youssama         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,8 @@ void	destroy_sem(t_philo *philo)
 {
 	sem_close(philo->fork);
 	sem_close(philo->act);
-	sem_close(philo->eat);
 	sem_unlink("philo_forks");
 	sem_unlink("philo_action");
-	sem_unlink("philo_eat");
 }
 
 int	doo(t_philo *philo)
@@ -40,7 +38,7 @@ int	doo(t_philo *philo)
 	i = 0;
 	philo->pid = malloc(sizeof(int) * philo->nb_philos);
 	if (!philo->pid)
-		exit(1);
+		return (0);
 	create_proc(philo, philo->pid);
 	while (i < philo->nb_philos)
 	{
